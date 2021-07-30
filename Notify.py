@@ -69,4 +69,4 @@ if __name__ == '__main__':
         if different is not None:
             for diff in different:
                 send(diff)
-        time.sleep(60)
+        time.sleep(60 * 10)
