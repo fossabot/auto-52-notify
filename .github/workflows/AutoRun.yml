@@ -4,7 +4,7 @@ name: AutoRun
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 0/6 * * *'
+    - cron: 0 0/6 * * *
 
 jobs:
   build:
@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name set up python3
+      - name: set up python3
       - uses: actions/setup-python@v2
         with:
           python-version: '3.9'
