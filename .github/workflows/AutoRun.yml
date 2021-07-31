@@ -4,7 +4,7 @@ name: AutoRun
 on:
   workflow_dispatch:
   schedule:
-    - cron: 0 0 0/7 * * ?
+    - cron: '0 0 0/7 * * ?'
 
 jobs:
   build:
@@ -12,7 +12,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
+      -name set up python3
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+          architecture: 'x64'
       
       - name: pip
         run: pip3 install -r requirements.txt
-      
+
+      - name: run
+        run: python3 Notify-Action.py ${{ secrets.SENDKEY }} ${{ secrets.COOKIES }}
